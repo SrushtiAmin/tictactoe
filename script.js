@@ -6,6 +6,11 @@ let board = [
 ];
 
 function makeMove(row, col) {
+  if (checkWinner() || isBoardFull()) {
+    // If the game is already won or it's a draw, do nothing
+    return;
+  }
+
   if (board[row][col] === '') {
     board[row][col] = currentPlayer;
     renderBoard();
